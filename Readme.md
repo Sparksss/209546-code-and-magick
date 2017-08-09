@@ -1,7 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
 * Студент: [Илья Рогаткин](https://up.htmlacademy.ru/javascript/10/user/209546).
-
+* Наставник  [Алексей Хапов](https://htmlacademy.ru/profile/id118459).
 ---
 
 _Не удаляйте и не обращайте внимание на папки и файлы:_<br>
