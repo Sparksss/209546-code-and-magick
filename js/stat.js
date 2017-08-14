@@ -50,8 +50,8 @@ window.renderStatistics = function (ctx, names, times) {
     return histogramHeights;
   };
 
-  var sortByGreater = function (times, names) {
-    var result  = -1;
+  var sortByGreater = function () {
+    var result = -1;
     var timesAndNames = [];
     for (var j = 0; j < times.length; j++) {
       if (times[j] > times[j + 1]) {
