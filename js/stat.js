@@ -49,10 +49,28 @@ window.renderStatistics = function (ctx, names, times) {
     }
     return histogramHeights;
   };
+
+  var sortByGreater = function (times, names) {
+    var result  = -1;
+    var timesAndNames = [];
+    for (var j = 0; j < times.length; j++) {
+      if (times[j] > times[j + 1]) {
+        result = times[j];
+        times[j] = times[j + 1];
+        times[j + 1] = result;
+        result = names[j];
+        names[j] = names[j + 1];
+        names[j + 1] = result;
+      }
+    }
+    timesAndNames.push(times);
+    timesAndNames.push(names);
+    return timesAndNames;
+  };
   for (var i = 0; i < names.length; i++) {
     ctx.fillStyle = 'black';
     ctx.font = '16px serif';
-    ctx.fillText(parseInt(times[i]), positionX, 245 - getHistogramHeights(histogramHeight, getMaxTime(times))[i]);
+    ctx.fillText(parseInt(sortByGreater(times, names)[0][i], 10), positionX, 245 - getHistogramHeights(histogramHeight, getMaxTime(times))[i]);
     ctx.fillStyle = 'white';
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
@@ -62,7 +80,7 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillRect(positionX, 250 - getHistogramHeights(histogramHeight, getMaxTime(times))[i], histogramWidth, getHistogramHeights(histogramHeight, getMaxTime(times))[i]);
     ctx.fillStyle = 'black';
     ctx.font = '16px serif';
-    ctx.fillText(names[i], positionX, 270);
+    ctx.fillText(sortByGreater(times, names)[1][i], positionX, 270);
     if (i !== names.length - 1) {
       positionX += 90;
     }
