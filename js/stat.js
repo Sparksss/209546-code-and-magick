@@ -59,7 +59,6 @@ window.renderStatistics = function (ctx, names, times) {
   var histogramHeight = 150;
   var getHistogramHeights = function () {
     var histogramHeights = [];
-    var histogramHeight = 150;
     var maxTime = getMaxTime(times)[0];
     for (var j = 0; j < times.length; j++) {
       histogramHeights.push(Math.floor((histogramHeight * times[j]) / maxTime));
