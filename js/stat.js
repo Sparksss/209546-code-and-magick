@@ -40,7 +40,6 @@ window.renderStatistics = function (ctx, names, times) {
   };
 
   var positionX = 150;
-  var positionY = 100;
   var histogramWidth = 40;
   var histogramHeight = 150;
   var getHistogramHeights = function () {
@@ -53,13 +52,14 @@ window.renderStatistics = function (ctx, names, times) {
   for (var i = 0; i < names.length; i++) {
     ctx.fillStyle = 'black';
     ctx.font = '16px serif';
-    ctx.fillText(getHistogramHeights(histogramHeight, getMaxTime(times))[i], positionX, 90);
+    ctx.fillText(parseInt(times[i]), positionX, 245 - getHistogramHeights(histogramHeight, getMaxTime(times))[i]);
+    ctx.fillStyle = 'white';
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
       ctx.fillStyle = getRandomColor();
     }
-    ctx.fillRect(positionX, positionY, histogramWidth, getHistogramHeights(histogramHeight, getMaxTime(times))[i]);
+    ctx.fillRect(positionX, 250 - getHistogramHeights(histogramHeight, getMaxTime(times))[i], histogramWidth, getHistogramHeights(histogramHeight, getMaxTime(times))[i]);
     ctx.fillStyle = 'black';
     ctx.font = '16px serif';
     ctx.fillText(names[i], positionX, 270);
