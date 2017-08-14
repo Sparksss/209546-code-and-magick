@@ -41,18 +41,25 @@ window.renderStatistics = function (ctx, names, times) {
 
   var positionX = 150;
   var positionY = 100;
-  var widthSize = 40;
-  var heightSize = 150;
+  var histogramWidth = 40;
+  var histogramHeight = 150;
+  var getHistogramHeights = function () {
+    var histogramHeights = [];
+    for (var j = 0; j < times.length; j++) {
+      histogramHeights.push(Math.floor((histogramHeight * times[j]) / getMaxTime(times)[0]));
+    }
+    return histogramHeights;
+  };
   for (var i = 0; i < names.length; i++) {
     ctx.fillStyle = 'black';
     ctx.font = '16px serif';
-    ctx.fillText(parseInt(times[i], 10), positionX, 90);
+    ctx.fillText(getHistogramHeights(histogramHeight, getMaxTime(times))[i], positionX, 90);
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
       ctx.fillStyle = getRandomColor();
     }
-    ctx.fillRect(positionX, positionY, widthSize, heightSize);
+    ctx.fillRect(positionX, positionY, histogramWidth, getHistogramHeights(histogramHeight, getMaxTime(times))[i]);
     ctx.fillStyle = 'black';
     ctx.font = '16px serif';
     ctx.fillText(names[i], positionX, 270);
