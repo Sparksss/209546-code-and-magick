@@ -53,10 +53,10 @@ window.renderStatistics = function (ctx, names, times) {
   positionY = 10;
   var MaxTime = getMaxTime(times);
   renderCloud(ctx, 'white', positionXWindow, positionY);
-  renderMaxTime(ctx, names, MaxTime);
+  renderMaxTime(ctx, names, maxTime);
   var positionX = 150;
   for (var i = 0; i < namesLength; i++) {
-    renderHistograms(ctx, MaxTime, names[i], times[i], positionX);
+    renderHistograms(ctx, maxTime, names[i], times[i], positionX);
     positionX += 90;
   }
 };
