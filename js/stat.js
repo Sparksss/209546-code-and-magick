@@ -35,8 +35,7 @@ var renderMaxTime = function (ctx, names, maxTime) {
 
 var renderHistograms = function (ctx, maxTime, names, times, positionX) {
   var histogramWidth = 40;
-  var histogramHeight = 150;
-  histogramHeight *= Math.floor(times) / maxTime[0];
+  var histogramHeight = 150 * Math.floor(times) / maxTime[0];
   ctx.fillText(Math.floor(times), positionX, 245 - histogramHeight);
   ctx.fillStyle = names === 'Вы' ? 'rgba(255, 0, 0, 1)' : getRandomColor();
   ctx.fillRect(positionX, 250 - histogramHeight, histogramWidth, histogramHeight);
