@@ -38,12 +38,12 @@ var renderMaxTime = function (ctx, names, badTime) {
 var renderHistograms = function (ctx, badTime, names, times, positionX) {
   var histogramWidth = 40;
   var histogramHeight = 150;
-  var HeightCalculation = histogramHeight * Math.floor(times) / badTime[0];
+  var heightCalculation = histogramHeight * Math.floor(times) / badTime[0];
   ctx.fillStyle = 'black';
   ctx.font = '16px PT Mono';
-  ctx.fillText(Math.floor(times), positionX, 245 - HeightCalculation);
+  ctx.fillText(Math.floor(times), positionX, 245 - heightCalculation);
   ctx.fillStyle = names === 'Вы' ? 'rgba(255, 0, 0, 1)' : getRandomColor();
-  ctx.fillRect(positionX, 250 - HeightCalculation, histogramWidth, HeightCalculation);
+  ctx.fillRect(positionX, 250 - heightCalculation, histogramWidth, heightCalculation);
   ctx.fillStyle = 'black';
   ctx.font = '16px PT Mono';
   ctx.fillText(names, positionX, 270);
