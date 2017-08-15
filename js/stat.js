@@ -26,17 +26,17 @@ var getRandomColor = function () {
   return 'rgba(11, 19, 181,' + Math.floor(20 + Math.random() * (100 - 20 + 1)) / 100 + ')';
 };
 
-var renderMaxTime = function (ctx, names, badTime) {
+var renderMaxTime = function (ctx, names, maxTime) {
   ctx.fillStyle = 'black';
   ctx.font = '16px PT Mono';
   ctx.fillText('Ура вы победили!', 110, 50);
-  ctx.fillText(' Худшее время: ' + badTime[0] + ' мс у игрока ' + names[badTime[1]], 110, 70);
+  ctx.fillText(' Худшее время: ' + maxTime[0] + ' мс у игрока ' + names[maxTime[1]], 110, 70);
 };
 
-var renderHistograms = function (ctx, MaxTime, names, times, positionX) {
+var renderHistograms = function (ctx, maxTime, names, times, positionX) {
   var histogramWidth = 40;
   var histogramHeight = 150;
-  histogramHeight *= Math.floor(times) / MaxTime[0];
+  histogramHeight *= Math.floor(times) / maxTime[0];
   ctx.fillText(Math.floor(times), positionX, 245 - histogramHeight);
   ctx.fillStyle = names === 'Вы' ? 'rgba(255, 0, 0, 1)' : getRandomColor();
   ctx.fillRect(positionX, 250 - histogramHeight, histogramWidth, histogramHeight);
