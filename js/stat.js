@@ -5,7 +5,8 @@ var renderCloud = function (ctx, colorCloud, x, y) {
   ctx.fillRect(x, y, 420, 270);
 };
 
-var getMaxTime = function (times, timesLength) {
+var getMaxTime = function (times) {
+  var timesLength = times.length;
   var max = -1;
   var maxIndex = -1;
   var indexMaxTime = [];
@@ -53,11 +54,10 @@ window.renderStatistics = function (ctx, names, times) {
   var positionXWindow = 110;
   var positionY = 20;
   var namesLength = names.length;
-  var timesLength = times.length;
   renderCloud(ctx, 'rgba(0, 0, 0, 0.7)', positionXWindow, positionY);
   positionXWindow = 100;
   positionY = 10;
-  var badTime = getMaxTime(times, timesLength);
+  var badTime = getMaxTime(times);
   renderCloud(ctx, 'white', positionXWindow, positionY);
   renderMaxTime(ctx, names, badTime);
   var positionX = 150;
