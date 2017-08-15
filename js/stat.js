@@ -23,10 +23,7 @@ var getMaxTime = function (times) {
 };
 
 var getRandomColor = function () {
-
-  var color = 'rgba(11, 19, 181, ';
-  color += Math.random().toFixed(1) + ')';
-  return color;
+  return 'rgba(11, 19, 181,' + Math.random().toFixed(2) + ')';
 };
 
 var renderMaxTime = function (ctx, names, badTime) {
