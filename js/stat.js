@@ -47,14 +47,13 @@ var renderHistograms = function (ctx, maxTime, names, times, positionX) {
 window.renderStatistics = function (ctx, names, times) {
   var positionXWindow = 110;
   var positionY = 20;
-  var namesLength = names.length;
-  renderCloud(ctx, 'rgba(0, 0, 0, 0.7)', positionXWindow, positionY);
-  positionXWindow = 100;
-  positionY = 10;
-  var maxTime = getMaxTime(times);
-  renderCloud(ctx, 'white', positionXWindow, positionY);
-  renderMaxTime(ctx, names, maxTime);
   var positionX = 150;
+  var offset = 10;
+  var namesLength = names.length;
+  var maxTime = getMaxTime(times);
+  renderCloud(ctx, 'rgba(0, 0, 0, 0.7)', positionXWindow, positionY);
+  renderCloud(ctx, 'white', positionXWindow - offset, positionY - offset);
+  renderMaxTime(ctx, names, maxTime);
   for (var i = 0; i < namesLength; i++) {
     renderHistograms(ctx, maxTime, names[i], times[i], positionX);
     positionX += 90;
