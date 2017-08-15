@@ -27,30 +27,27 @@ var getRandomColor = function () {
   }
   return color;
 };
-var renderHistogram = function (ctx, names, badTime, times) {
+var renderMaxTime = function (ctx, names, badTime, times) {
   ctx.fillStyle = 'black';
   ctx.font = '16px PT Mono';
   ctx.fillText('Ура вы победили!', 110, 50);
   ctx.fillText(' Худшее время: ' + badTime[0] + ' мс у игрока ' + names[badTime[1]], 110, 70);
+};
+var getHistogramResult = function (ctx, names, times, maxTime) {
   var positionX = 150;
   var histogramWidth = 40;
   var histogramHeight = 150;
-  var histogramHeights = [];
-  var maxTime = getMaxTime(times)[0];
-  for (var j = 0; j < times.length; j++) {
-    histogramHeights.push(Math.floor((histogramHeight * times[j]) / maxTime));
-  }
   for (var i = 0; i < names.length; i++) {
     ctx.fillStyle = 'black';
     ctx.font = '16px PT Mono';
-    ctx.fillText(parseInt(times[i], 10), positionX, 245 - histogramHeights[i]);
+    ctx.fillText(Math.floor(times[i], 10), positionX, 245 - histogramHeight * Math.floor(times[i]) / maxTime);
     ctx.fillStyle = 'white';
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
       ctx.fillStyle = getRandomColor();
     }
-    ctx.fillRect(positionX, 250 - histogramHeights[i], histogramWidth, histogramHeights[i]);
+    ctx.fillRect(positionX, 250 - histogramHeight * Math.floor(times[i]) / maxTime, histogramWidth, histogramHeight * Math.floor(times[i]) / maxTime);
     ctx.fillStyle = 'black';
     ctx.font = '16px PT Mono';
     ctx.fillText(names[i], positionX, 270);
@@ -68,5 +65,6 @@ window.renderStatistics = function (ctx, names, times) {
   positionXWindow = 100;
   positionY = 10;
   renderCloud(ctx, colorCloud, positionXWindow, positionY);
-  renderHistogram(ctx, names, getMaxTime(times), times);
+  renderMaxTime(ctx, names, getMaxTime(times), times);
+  getHistogramResult(ctx, names, times, getMaxTime(times)[0]);
 };
