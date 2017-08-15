@@ -51,7 +51,7 @@ window.renderStatistics = function (ctx, names, times) {
   renderCloud(ctx, 'rgba(0, 0, 0, 0.7)', positionXWindow, positionY);
   positionXWindow = 100;
   positionY = 10;
-  var MaxTime = getMaxTime(times);
+  var maxTime = getMaxTime(times);
   renderCloud(ctx, 'white', positionXWindow, positionY);
   renderMaxTime(ctx, names, maxTime);
   var positionX = 150;
