@@ -35,8 +35,7 @@ var renderMaxTime = function (ctx, names, maxTime) {
 
 var renderHistograms = function (ctx, maxTime, names, times, positionX) {
   var histogramWidth = 40;
-  var histogramHeight = 150;
-  histogramHeight *= Math.floor(times) / maxTime[0];
+  var histogramHeight = 150 * Math.floor(times) / maxTime[0];
   ctx.fillText(Math.floor(times), positionX, 245 - histogramHeight);
   ctx.fillStyle = names === 'Вы' ? 'rgba(255, 0, 0, 1)' : getRandomColor();
   ctx.fillRect(positionX, 250 - histogramHeight, histogramWidth, histogramHeight);
@@ -47,14 +46,13 @@ var renderHistograms = function (ctx, maxTime, names, times, positionX) {
 window.renderStatistics = function (ctx, names, times) {
   var positionXWindow = 110;
   var positionY = 20;
-  var namesLength = names.length;
-  renderCloud(ctx, 'rgba(0, 0, 0, 0.7)', positionXWindow, positionY);
-  positionXWindow = 100;
-  positionY = 10;
-  var maxTime = getMaxTime(times);
-  renderCloud(ctx, 'white', positionXWindow, positionY);
-  renderMaxTime(ctx, names, maxTime);
   var positionX = 150;
+  var offset = 10;
+  var namesLength = names.length;
+  var maxTime = getMaxTime(times);
+  renderCloud(ctx, 'rgba(0, 0, 0, 0.7)', positionXWindow, positionY);
+  renderCloud(ctx, 'white', positionXWindow - offset, positionY - offset);
+  renderMaxTime(ctx, names, maxTime);
   for (var i = 0; i < namesLength; i++) {
     renderHistograms(ctx, maxTime, names[i], times[i], positionX);
     positionX += 90;
