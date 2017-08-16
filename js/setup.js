@@ -2,7 +2,7 @@
 
 var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
 
-var WIZARD_lAST_NAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
+var WIZARD_LAST_NAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
 
 
 var userDialog = document.querySelector('.setup');
@@ -21,9 +21,7 @@ var generateNames = function (max) {
 
 for (var i = 0; i < 4; i++) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
-  wizardElement.querySelector('.setup-similar-label').textContent =  WIZARD_NAMES[generateNames(namesLenght)] +
-    ' ' + WIZARD_lAST_NAMES[generateNames(namesLenght)];
-  console.log(generateNames(namesLenght));
+  wizardElement.querySelector('.setup-similar-label').textContent = WIZARD_NAMES[generateNames(namesLenght)] + ' ' + WIZARD_LAST_NAMES[generateNames(namesLenght)];
   similarListElement.appendChild(wizardElement);
 }
 
