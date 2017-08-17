@@ -7,7 +7,7 @@ var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
 
 var generateNames = function () {
-  return Math.round(1 + Math.random() * (9 + 1 - 1));
+  return Math.round(0 + Math.random() * (8 + 1 - 0));
 };
 
 var getRandomWizards = function (number) {
