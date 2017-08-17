@@ -20,12 +20,12 @@ var coatColor = [
 var eyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
 
 var getRandomNumber = function (max) {
-  return Math.round(Math.random() * max);
+  return Math.floor(Math.random() * max);
 };
 
 var getRandomWizards = function (randomNumber, names, lastNames, coats, eyes) {
-  var number = randomNumber(8);
-  return {name: names[number] + ' ' + lastNames[number], coat: coats[randomNumber(6)], eyes: eyes[randomNumber(5)]};
+  var number = randomNumber(WIZARD_NAMES.length);
+  return {name: names[number] + ' ' + lastNames[number], coat: coats[randomNumber(coatColor.length)], eyes: eyes[randomNumber(eyesColor.length)]};
 };
 
 var renderWizards = function (template) {
