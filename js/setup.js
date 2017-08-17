@@ -25,7 +25,11 @@ var getRandomNumber = function (max) {
 
 var getRandomWizards = function (randomNumber, names, lastNames, coats, eyes) {
   var number = randomNumber(WIZARD_NAMES.length);
-  return {name: names[number] + ' ' + lastNames[number], coat: coats[randomNumber(coatColor.length)], eyes: eyes[randomNumber(eyesColor.length)]};
+  var namesWizards = names;
+  var lastNamesWizards = lastNames;
+  var coatWizards = coats;
+  var eyesWizards = eyes;
+  return {name: namesWizards[number] + ' ' + lastNamesWizards[number], coat: coatWizards[randomNumber(coatColor.length)], eyes: eyesWizards[randomNumber(eyesColor.length)]};
 };
 
 var renderWizards = function (template) {
