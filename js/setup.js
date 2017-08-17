@@ -19,19 +19,19 @@ var coatColor = [
 
 var eyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
 
-var generateNumbers = function () {
+var getRandomNumber = function () {
   return Math.round(Math.random() * 8);
 };
 
-var getRandomWizards = function (number) {
-  return {name: WIZARD_NAMES[number] + ' ' + WIZARD_LAST_NAMES[number], coat: coatColor[number], eyes: eyesColor[number]};
+var getRandomWizards = function (number, names, lastNames, coats, eyes) {
+  return {name: names[number] + ' ' + lastNames[number], coat: coats[number], eyes: eyes[number]};
 };
 
 var renderWizards = function (template) {
   var fragment = document.createDocumentFragment();
   for (var i = 0; i < 4; i++) {
     var wizardElement = template.cloneNode(true);
-    var randomNumber = generateNumbers();
+    var randomNumber = getRandomNumber();
     var wizard = getRandomWizards(randomNumber, WIZARD_NAMES, WIZARD_LAST_NAMES, coatColor, eyesColor);
     wizardElement.querySelector('.setup-similar-label').textContent = wizard['name'];
     wizardElement.querySelector('.wizard-coat').style.fill = wizard['coat'];
