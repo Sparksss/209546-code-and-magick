@@ -23,20 +23,16 @@ var getRandomNumber = function (max) {
   return Math.floor(Math.random() * max);
 };
 
-var getRandomWizards = function (randomNumber, names, lastNames, coats, eyes) {
+var getRandomWizards = function (randomNumber) {
   var number = randomNumber(WIZARD_NAMES.length);
-  var namesWizards = names;
-  var lastNamesWizards = lastNames;
-  var coatWizards = coats;
-  var eyesWizards = eyes;
-  return {name: namesWizards[number] + ' ' + lastNamesWizards[number], coat: coatWizards[randomNumber(coatColor.length)], eyes: eyesWizards[randomNumber(eyesColor.length)]};
+  return {name: WIZARD_NAMES[number] + ' ' + WIZARD_LAST_NAMES[number], coat: coatColor[randomNumber(coatColor.length)], eyes: eyesColor[randomNumber(eyesColor.length)]};
 };
 
 var renderWizards = function (template) {
   var fragment = document.createDocumentFragment();
   for (var i = 0; i < 4; i++) {
     var wizardElement = template.cloneNode(true);
-    var wizard = getRandomWizards(getRandomNumber, WIZARD_NAMES, WIZARD_LAST_NAMES, coatColor, eyesColor);
+    var wizard = getRandomWizards(getRandomNumber);
     wizardElement.querySelector('.setup-similar-label').textContent = wizard['name'];
     wizardElement.querySelector('.wizard-coat').style.fill = wizard['coat'];
     wizardElement.querySelector('.wizard-eyes').style.fill = wizard['eyes'];
