@@ -24,7 +24,8 @@ var getRandomNumber = function (max) {
 };
 
 var getRandomWizards = function (randomNumber, names, lastNames, coats, eyes) {
-  return {name: names[randomNumber(8)] + ' ' + lastNames[randomNumber(8)], coat: coats[randomNumber(6)], eyes: eyes[randomNumber(5)]};
+  var number = randomNumber(8);
+  return {name: names[number] + ' ' + lastNames[number], coat: coats[randomNumber(6)], eyes: eyes[randomNumber(5)]};
 };
 
 var renderWizards = function (template) {
