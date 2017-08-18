@@ -1,7 +1,8 @@
 'use strict';
 
-var USER_DIALOG = document.querySelector('.setup');
-USER_DIALOG.classList.remove('hidden');
+var userDialog = document.querySelector('.setup');
+var HIDDEN = 'hidden';
+userDialog.classList.remove(HIDDEN);
 
 var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
@@ -71,5 +72,5 @@ var constructorWizard = function (fragment) {
 
 similarListElement.appendChild(renderWizards());
 
-USER_DIALOG.querySelector('.setup-similar').classList.remove('hidden');
+userDialog.querySelector('.setup-similar').classList.remove(HIDDEN);
 
