@@ -1,7 +1,7 @@
 'use strict';
 
-var userDialog = document.querySelector('.setup');
-userDialog.classList.remove('hidden');
+var USER_DIALOG = document.querySelector('.setup');
+USER_DIALOG.classList.remove('hidden');
 
 var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
@@ -45,7 +45,8 @@ var getRandomNumber = function (max) {
 
 var getRandomWizards = function () {
   var number = getRandomNumber(WIZARD_NAMES.length);
-  return {name: WIZARD_NAMES[number] + ' ' + WIZARD_LAST_NAMES[number],
+  return {
+    name: WIZARD_NAMES[number] + ' ' + WIZARD_LAST_NAMES[number],
     coat: WIZARD_COAT_COLOR[getRandomNumber(WIZARD_COAT_COLOR.length)],
     eyes: WIZARD_EYES_COLOR[getRandomNumber(WIZARD_EYES_COLOR.length)]
   };
@@ -70,5 +71,5 @@ var constructorWizard = function (fragment) {
 
 similarListElement.appendChild(renderWizards());
 
-userDialog.querySelector('.setup-similar').classList.remove('hidden');
+USER_DIALOG.querySelector('.setup-similar').classList.remove('hidden');
 
