@@ -43,7 +43,8 @@ var getRandomWizards = function () {
   var number = getRandomNumber(WIZARD_NAMES.length);
   return {name: WIZARD_NAMES[number] + ' ' + WIZARD_LAST_NAMES[number],
     coat: WIZARD_COAT_COLOR[getRandomNumber(WIZARD_COAT_COLOR.length)],
-    eyes: WIZARD_EYES_COLOR[getRandomNumber(WIZARD_EYES_COLOR.length)]};
+    eyes: WIZARD_EYES_COLOR[getRandomNumber(WIZARD_EYES_COLOR.length)]
+  };
 };
 
 var renderWizards = function () {
